@@ -1,0 +1,57 @@
+\documentclass{scrarticle}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[english]{babel}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\addbibresource{bibliography.bib}
+
+
+\usepackage[on]{focusframe}
+    %TC:subst \sect \section
+    %TC:subst \subsect \subsection
+    %TC:subst \sectgoal \section
+    %TC:subst \subsectgoal \subsection
+\edef\xjobname{main}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,
+            linkcolor=black,
+            filecolor=black,      
+            urlcolor=black,}
+\urlstyle{same}
+\usepackage{verbatim}
+
+
+
+\title{The Colour of Offline Data}
+\author{Brian Ballsun-Stanton}
+\date{February 2023}
+
+\begin{document}
+
+\maketitle
+\filegoal{1000}
+
+\sectgoal{Introduction}{250}
+
+Regardless of data's nature: objective measurement of reality, subjective recorded observation, or encoding of human communications \parencite{Ballsun-Stanton2010-cn}---the actual recorded thing-itself and any structured metadata or paradata 
+%TODO CITE
+cannot fully encompass the skein of decisions, methodologies, environmental factors, and choices-in-rigour which provide intangible affordances around the quality and uses of the data. Skala describes this context around the data as a `Colour of bits;' a human-evaluable context which operates much like a document's security clearance which is an emergent property of the context of creation of the data\parencite*{Skala2004-zc}. While some aspects of the context of the creation and history of the data should be captured in metadata during creation, updating, and deletion---metadata can only exist within the universe of discourse\footnote{The context of relevant properties documented during schema creation.
+%TODO FIX, CITE
+} and cannot provide a full context and history of any given data\footnote{`Data' can be used in the plural sense (usually in relation to objective measurements of reality, or in the singular (a recorded observation, or electronic document). In this work, I will be using it in the singular due to the technological context.}. Skala uses the context of a recording of John Cage's 4'33":
+\begin{quote}
+One of my friends was talking about how he'd performed John Cage's famous silent musical composition 4'33" for MP3.  Okay, we said, (paraphrasing the conversation here) so you took an appropriate-sized file of zeroes out of /dev/zero and compressed that with an MP3 compressor?  No, no, he said.  If I did that, it wouldn't really be 4'33" because to perform the composition, you have to make the silence in a certain way, according to the rules laid down by the composer.  It's not just four minutes and thirty-three seconds of any old silence. \parencite*{Skala2004-zc}
+\end{quote}
+
+In my own experience, this colour \textit{qua} unrecorded-context-around-data is most evident from data produced from archaeological fieldwork. To a `colour-blind' computer scientist, where a bit is a bit, archaeological data collected in an app is either valid or invalid. In the messy pragmatics of the field, there exist additional colours of `not-valid-yet,` `physically-uncertain,' and `this model is not appropriate but we have to record anyways,' amongst other operational nuances that cannot be well captured in metadata. Archaeological fieldwork tends towards a do-once activity, either because it is physically destroying the environment it is recording as it records the environment or due to the difficulties of obtaining data--high quality data and record validity is a goal rather than a minimum threshold.
+%TODO CITE
+
+% Sitting somewhere between a programme’s heuristic and its hard core are the allowed academic colours of bits: a fundamental understanding of what digitally collected data can and should be able to measure/record/document
+
+
+\sectgoal{Colours in Archaeological Fieldwork}{500}
+\sectgoal{Evaluative Accent}{150}
+\sectgoal{Implications}{100}
+\printbibliography
+
+\end{document}
