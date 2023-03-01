@@ -1,7 +1,10 @@
 \documentclass{scrarticle}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[english]{babel}
-\usepackage{biblatex}
+\usepackage[
+backend=biber,
+style=authoryear,
+]{biblatex}
 \usepackage{csquotes}
 \addbibresource{bibliography.bib}
 
@@ -15,16 +18,14 @@
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
-            linkcolor=black,
-            filecolor=black,      
-            urlcolor=black,}
+            allcolors=black,}
 \urlstyle{same}
 \usepackage{verbatim}
 
 
 
 \title{The Colour of Offline Data}
-\author{Brian Ballsun-Stanton}
+%\author{Brian Ballsun-Stanton}
 \date{February 2023}
 
 \begin{document}
@@ -36,28 +37,33 @@
 
 
 
-Regardless of data's nature: objective measurement of reality, subjective recorded observation, or encoding of human communications \parencite{Ballsun-Stanton2010-cn}---the actual recorded thing-itself and any structured metadata or paradata 
-%TODO CITE
-cannot fully encompass the skein of decisions, methodologies, environmental factors, and choices-in-rigour which provide intangible affordances around the quality and uses of the data. Skala describes this context around the data as a `Colour of bits;' a human-evaluable context which operates much like a document's security clearance which is an emergent property of the context of creation of the data\parencite*{Skala2004-zc}. While some aspects of the context of the creation and history of the data should be captured in metadata during creation, updating, and deletion---metadata can only exist within the universe of discourse\footnote{The context of relevant properties documented during schema creation.
-%TODO FIX, CITE
-% note that we cannot fully document reality
-} and cannot provide a full context and history of any given data\footnote{`Data' can be used in the plural sense (usually in relation to objective measurements of reality, or in the singular (a recorded observation, or electronic document). In this work, I will be using it in the singular due to the technological context.}. Skala uses the context of a recording of John Cage's 4'33":
+Regardless of data's nature: objective measurement of reality, subjective recorded observation, or encoding of human communications \parencite{Ballsun-Stanton2010-cn}---the recorded thing-itself and any structured metadata or paradata \parencite{Borjesson2022-jl}
+cannot fully encompass the skein of decisions, methodologies, environmental factors, and choices-in-rigour which provide intangible affordances around the quality and uses of the data. Skala describes this context around the data as a `Colour of bits;' a human-evaluable context which operates much like a document's security clearance which is an emergent property of the context of the creation of the data \parencite*{Skala2004-zc}. While some aspects of the context of the creation and history of the data should be captured in metadata during creation, updating, and deletion---metadata can only exist within the universe of discourse and cannot provide a full context and history of any given data
+%\footnote{`Data' can be used in the plural sense (usually in relation to objective measurements of reality, or in the singular (a recorded observation, or electronic document). In this work, I will be using it in the singular due to the technological context.}
+. Skala uses the context of a recording of John Cage's 4'33":
 \begin{quote}
-One of my friends was talking about how he'd performed John Cage's famous silent musical composition 4'33" for MP3.  Okay, we said, (paraphrasing the conversation here) so you took an appropriate-sized file of zeroes out of /dev/zero and compressed that with an MP3 compressor?  No, no, he said.  If I did that, it wouldn't really be 4'33" because to perform the composition, you have to make the silence in a certain way, according to the rules laid down by the composer.  It's not just four minutes and thirty-three seconds of any old silence. \parencite*{Skala2004-zc}
+One of my friends was talking about how he'd performed John Cage's famous silent musical composition 4'33" for MP3.  Okay, we said, (paraphrasing the conversation here) so you took an appropriate-sized file of zeroes out of /dev/zero and compressed that with an MP3 compressor?  No, no, he said.  If I did that, it wouldn't really be 4'33" because to perform the composition, you have to make the silence in a certain way, according to the rules laid down by the composer.  It's not just four minutes and thirty-three seconds of any old silence  \parencite*{Skala2004-zc}.
 \end{quote}
 
-In my own experience, this colour \textit{qua} unrecorded-context-around-data is most evident from data produced from archaeological fieldwork. To a `colour-blind' computer scientist, where a bit is a bit, archaeological data collected in an app is either valid or invalid. In the messy pragmatics of the field, there exist additional colours of `not-valid-yet,` `physically-uncertain,' and `this model is not appropriate but we have to record anyways,' amongst other operational nuances that cannot be well captured in metadata. Archaeological fieldwork tends towards a do-once activity, either because it is physically destroying the environment it is recording as it records the environment or due to the difficulties of obtaining data--high quality data and record validity is a goal rather than a minimum threshold.
+In my own experience, this colour \textit{qua} unrecorded-context-around-data is most evident from data produced from archaeological fieldwork. To a `colour-blind' computer scientist, where a bit is a bit, archaeological data collected in an app is either valid or invalid. In the messy pragmatics of the field, there exist additional colours of `not-valid-yet,` `physically uncertain,' and `this model is not appropriate but we have to record anyways,' amongst other operational nuances that cannot be well captured in metadata. Archaeological fieldwork tends towards a do-once activity, either because it is physically destroying the environment it is recording as it records the environment or due to the difficulties of obtaining data--high-quality data and record validity is a goal rather than a minimum threshold.
 %TODO CITE
 
 \sectgoal{Metadata and the Universe of Discourse}{250}
 
 The delineation of a locus of concern dividing model versus not-model is called the `Universe of Discourse' by Venn: `When we make use of names and resort to reasonings, what limits of reference, if any, do we make? What is the range of subject matter about which we consider ourselves to be speaking?' \parencite[180]{Venn1881-yy}. Here, specifically, Venn describes the challenges of excluding all of the irrelevant factors to our reasoning, and describes the rectangular bounding box surrounding his famous circles as the Universe of Discourse -- the division between `these are matters we care about' and `these are not matters of relevance to the current model.' 
 
-It is impossible to have a model with sufficient data and metadata to be a fully accurate representation of the thing without being the thing itself (see: \parencite[131] and the map-territory distinction.) Therefore the model designer must always anticipate a future universe of discourse when making data models and providing for metadata annotations. There are always boundary trade-offs where the universe of discourse intersects the model---this constraint holds true for a relational database as much as it does the trained eye and narrative articulated above or by Caraher in Slow Archaeology, `Documenting features in a trench or in the field in handwritten notebooks provides a moment to slow down and to observe subtleties that we might have otherwise missed in our quest for efficient data collection' \parencite*[50]{Caraher2015-dn}. Data/text description must elide non-salient detail outside the universe of discourse. A model or description which fails to do so decreases in utility as entry takes more time for increasingly marginal gains.
+It is impossible to have a model with sufficient data and metadata to be a fully accurate representation of the thing without being the thing itself (see: \parencite[131]{Borges1975-rn} and the map-territory distinction.) Therefore the model designer must always anticipate a future universe of discourse when making data models and providing for metadata and annotation. There are always boundary trade-offs where the universe of discourse intersects the model---this constraint holds for a relational database as much as it does the trained eye and narrative articulated above or by Caraher in Slow Archaeology, `Documenting features in a trench or in the field in handwritten notebooks provides a moment to slow down and to observe subtleties that we might have otherwise missed in our quest for efficient data collection' \parencite*[50]{Caraher2015-dn}. Data/text description must elide non-salient detail outside the universe of discourse. A model or description which fails to do so decreases in utility as entry takes more time for increasingly marginal gains.
 
 % With regards to negative terms of reference, " 181 https://archive.org/details/symboliclogic00venniala/page/180/mode/2up?view=theater
 \sectgoal{Colours in Archaeological Fieldwork}{200}
 
+Outside of Skala's colours informing the intellectual property status of a bit, or Patrick McKenzie's discussion around the accountant's view of various metadata-infused-colours of money \parencite*{Mckenzie2022-tt}, there exist colours of academic data. In many ways, this mirrors the tacit knowledge carried by researchers and machines from lab to lab in a wordless pidgin---the data itself and metadata at the document or record level is insufficient to contextualise or reproduce the data \parencite[51]{Galison1997-dz}. 
+
+Capturing this wordless pidgin, the relationship of the thing in context with its (complex) data-capturing environment, is outside the pragmatic realities of fieldwork. Those creating a record (digital or traditional) establish an implicit universe of discourse as they design their recording forms and methods with the intention that the records will serve to adequately capture the data under observation. 
+
+In this paper, I will use the implementation of `annotation' and `certainty' value-level metadata in an offline-focused field-data collection software app across more than seventy projects as a case study. Through this study, I will explore how the metaphor of the colour of data illuminates the wordless pidgins of fieldwork, record preparation, and data analysis. Furthermore, I will discuss how data created offline, through remote fieldwork, is commonly `stateful'---requiring different kinds and strengths of validation and metadata as it moves from field to lab to paper, even though the data itself may not change. 
+
+This paper should be able to assist in design discussions around software systems which may support offline or remote fieldwork. Some software developers may have the belief when designing systems that, `... on the other hand, bits are bits are bits and it is absolutely fundamental that two identical chunks of bits cannot be distinguished.  Colour does not exist' \parencite{Skala2004-zc}. I would assert that they are wrong. Software systems which cannot handle the context and state of data, its `colour,' as it passes through the research pipeline are ill-suited for remote or offline fieldwork.
 
 % Sitting somewhere between a programme’s heuristic and its hard core are the allowed academic colours of bits: a fundamental understanding of what digitally collected data can and should be able to measure/record/document
 
@@ -70,7 +76,7 @@ It is impossible to have a model with sufficient data and metadata to be a fully
 % element set if most of the elements are never used, or if their use cannot be relied upon across
 % the entire collection. 
 
-\sectgoal{Implications}{100}
+
 \printbibliography
 
 \end{document}
